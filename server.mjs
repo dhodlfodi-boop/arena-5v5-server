@@ -38,6 +38,7 @@ const ITEM_CATALOG = {
 const rooms = new Map();
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 app.get('/health', (_req, res) => res.json({ ok: true, service: 'arena-5v5', rooms: rooms.size, time: new Date().toISOString() }));
 app.get('/config', (_req, res) => res.json({ roomCode: ROOM_CODE, maxPlayers: MAX_PLAYERS, passCosts: PASS_COSTS, itemCatalog: ITEM_CATALOG, mobileAndPc: true }));
 
